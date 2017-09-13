@@ -48,8 +48,7 @@ namespace TF2Config
         {
             string OpenFilePath = cfgPathAndNameLog.
                                   ElementAt(ListBoxCFGcontainer.SelectedIndex).Key;
-            FileStream OpenedFile = File.Open(OpenFilePath,FileMode.Open);
-            OpenedFile.Close();
+            string[] inputData = File.ReadAllLines(OpenFilePath);
         }
     }
 }
