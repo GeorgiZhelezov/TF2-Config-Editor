@@ -34,8 +34,10 @@
             this.ButtonAddCFG = new System.Windows.Forms.Button();
             this.ListBoxCFGcontainer = new System.Windows.Forms.ListBox();
             this.EditorTab = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.TabControl.SuspendLayout();
             this.FileSelectTab.SuspendLayout();
+            this.EditorTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -96,12 +98,21 @@
             // EditorTab
             // 
             this.EditorTab.BackColor = System.Drawing.Color.Transparent;
+            this.EditorTab.Controls.Add(this.listBox1);
             this.EditorTab.Location = new System.Drawing.Point(4, 22);
             this.EditorTab.Name = "EditorTab";
             this.EditorTab.Padding = new System.Windows.Forms.Padding(3);
             this.EditorTab.Size = new System.Drawing.Size(421, 343);
             this.EditorTab.TabIndex = 1;
             this.EditorTab.Text = "Editor";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(6, 6);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(186, 329);
+            this.listBox1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -113,6 +124,7 @@
             this.Text = "Form1";
             this.TabControl.ResumeLayout(false);
             this.FileSelectTab.ResumeLayout(false);
+            this.EditorTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,6 +137,7 @@
         private System.Windows.Forms.ListBox ListBoxCFGcontainer;
         private System.Windows.Forms.Button ButtonOpenSelected;
         private System.Windows.Forms.Button ButtonAddCFG;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

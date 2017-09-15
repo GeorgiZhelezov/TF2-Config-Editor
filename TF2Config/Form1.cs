@@ -21,6 +21,7 @@ namespace TF2Config
 
         OpenFileDialog ofd = new OpenFileDialog();
         Dictionary<string, string> cfgPathAndNameLog = new Dictionary<string, string>();
+        Dictionary<string, string> CommandsLog = new Dictionary<string, string>();
 
         private void ButtonOpenCFGfile_Click(object sender, EventArgs e)
         {
@@ -48,7 +49,49 @@ namespace TF2Config
         {
             string OpenFilePath = cfgPathAndNameLog.
                                   ElementAt(ListBoxCFGcontainer.SelectedIndex).Key;
+
             string[] inputData = File.ReadAllLines(OpenFilePath);
+            string FormattedCommand = string.Empty;
+            string FormattedValue = string.Empty;
+
+            for (int i = 0; i < inputData.Length; i++)
+            {
+                string[] ArrayCommand = inputData[i].Split(' ');
+                if (ArrayCommand.Length == 3)
+                {
+                    FormattedCommand = string.Join(" ", ArrayCommand.Take(ArrayCommand.Length - 2));
+                    FormattedValue = ArrayCommand.Last();
+                }
+                else if (ArrayCommand.Length == 2)
+                {
+                    FormattedCommand = ArrayCommand[0];
+                    FormattedValue = ArrayCommand[1];
+                }
+                else if (ArrayCommand.Length == 1)
+                {
+                    FormattedCommand = ArrayCommand[0];
+                    FormattedValue = string.Empty;
+                }
+                else
+                {
+                    FormattedValue = "LONGER THAN 3";
+                }
+
+                if (CommandsLog.ContainsKey(FormattedCommand))
+                {
+                    CommandsLog[FormattedCommand] = FormattedValue;
+                }
+                else
+                {
+                    CommandsLog.Add(FormattedCommand, FormattedValue);
+                }
+                
+            }
+
+
+
+
+
         }
     }
 }
